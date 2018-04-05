@@ -1,0 +1,29 @@
+{
+    "name": "diatechnis/vellum",
+    "description": "A site building library based loosely on atomic design principles.",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "Michael Kelly",
+          "email": "puritandesigns@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": "^7.2",
+        "roave/security-advisories": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vellum\\": "src/Vellum/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
