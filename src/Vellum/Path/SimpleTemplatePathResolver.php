@@ -17,13 +17,27 @@ class SimpleTemplatePathResolver implements TemplatePathInterface
         $this->base_path = $base_path;
     }
 
-    public function resolve(ComponentInterface $component): string
-    {
+    public function resolve(
+        ComponentInterface $component,
+        bool $with_base_path = true
+    ): string {
         $class = \get_class($component);
         $parts = explode('\\', $class);
         $last_segment = \substr_count($class, '\\');
 
-        return $this->base_path . strtolower($parts[$last_segment - 1]) .
-            '/' . strtolower($parts[$last_segment]) . $this->extension;
+        $path = strtolower($parts[$last_segment - 1]) . '/' .
+            strtolower($parts[$last_segment]) .
+            $this->extension;
+
+        if ($with_base_path) {
+            return $this->base_path . $path;
+        }
+
+        return $path;
+    }
+
+    public function getBasePath(): string
+    {
+        return $this->base_path;
     }
 }
