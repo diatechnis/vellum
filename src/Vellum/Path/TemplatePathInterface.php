@@ -6,7 +6,10 @@ use Vellum\Contracts\Components\ComponentInterface;
 
 interface TemplatePathInterface
 {
-    public function resolve(ComponentInterface $component): string;
+    public function resolve(
+        ComponentInterface $component,
+        bool $with_base_path = true
+    ): string;
 
     public function getBasePath(): string;
 }
