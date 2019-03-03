@@ -10,9 +10,9 @@ interface DisplayTypeInterface
 
     public function getDescription(): string;
 
-    public function getOptions(): InputsInterface;
+    public function getInputs(): InputsInterface;
 
-    public function hasOptions(): bool;
+    public function hasInputs(): bool;
 
     public function isDefault(): bool;
 

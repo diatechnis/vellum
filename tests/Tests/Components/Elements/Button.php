@@ -34,7 +34,7 @@ class Button extends AbstractComponent
         );
     }
 
-    protected function createOptions(): InputsInterface
+    protected function createInputs(): InputsInterface
     {
         return new Inputs(
             new TextInput(

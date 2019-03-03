@@ -94,7 +94,7 @@ final class DisplayTypes implements DisplayTypesInterface, InputInterface
             $display_type_arguments = $argument_data[self::DISPLAY_TYPE]['arguments'];
         }
 
-        $arguments =  $display_type->getOptions()->createArguments(
+        $arguments =  $display_type->getInputs()->createArguments(
             $display_type_arguments, self::DISPLAY_TYPE
         );
 

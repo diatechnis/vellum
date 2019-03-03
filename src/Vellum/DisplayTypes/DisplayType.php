@@ -14,22 +14,22 @@ final class DisplayType implements DisplayTypeInterface, ArrayableInterface
     /** @var string */
     private $description;
     /** @var InputsInterface */
-    private $options;
+    private $inputs;
     /** @var bool */
     private $is_default;
 
     public function __construct(
         string $name,
-        InputsInterface $options = null,
+        InputsInterface $inputs = null,
         string $description = '',
         bool $is_default_type = false
     ) {
         $this->name = $name;
 
-        if (null === $options) {
-            $options = new Inputs();
+        if (null === $inputs) {
+            $inputs = new Inputs();
         }
-        $this->options = $options;
+        $this->inputs = $inputs;
 
         $this->description = $description;
 
@@ -46,14 +46,14 @@ final class DisplayType implements DisplayTypeInterface, ArrayableInterface
         return $this->description;
     }
 
-    public function getOptions(): InputsInterface
+    public function getInputs(): InputsInterface
     {
-        return $this->options;
+        return $this->inputs;
     }
 
-    public function hasOptions(): bool
+    public function hasInputs(): bool
     {
-        return ! empty($this->options->toArray());
+        return ! empty($this->inputs->toArray());
     }
 
     public function isDefault(): bool
@@ -65,7 +65,7 @@ final class DisplayType implements DisplayTypeInterface, ArrayableInterface
     {
         return new self(
             $this->getIdentifier(),
-            $this->getOptions(),
+            $this->getInputs(),
             $this->getDescription(),
             $is_default
         );
@@ -76,7 +76,7 @@ final class DisplayType implements DisplayTypeInterface, ArrayableInterface
         return [
             'name' => $this->name,
             'description' => $this->description,
-            'inputs' => $this->options->toArray(),
+            'inputs' => $this->inputs->toArray(),
             'is_default' => $this->is_default
         ];
     }

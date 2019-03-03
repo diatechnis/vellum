@@ -38,7 +38,7 @@ abstract class AbstractComponent implements ComponentInterface,
     ) {
         $this->display_types = $this->createDisplayTypes();
 
-        $this->inputs = $this->createOptions();
+        $this->inputs = $this->createInputs();
 
         $this->arguments = $this->createArguments($argument_data);
 
@@ -76,7 +76,7 @@ abstract class AbstractComponent implements ComponentInterface,
         return $this->renderer->render($this);
     }
 
-    abstract protected function createOptions(): InputsInterface;
+    abstract protected function createInputs(): InputsInterface;
 
     abstract protected function createDisplayTypes(): DisplayTypesInterface;
 

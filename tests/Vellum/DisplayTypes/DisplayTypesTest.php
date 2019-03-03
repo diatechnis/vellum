@@ -97,7 +97,7 @@ class DisplayTypesTest extends TestCase
         );
     }
 
-    public function test_get_options_returns_input_array()
+    public function test_get_inputs_returns_input_array()
     {
         $display = $this->createPopulatedDisplayTypes();
 

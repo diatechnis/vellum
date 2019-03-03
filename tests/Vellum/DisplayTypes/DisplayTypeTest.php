@@ -25,19 +25,19 @@ class DisplayTypeTest extends TestCase
         );
     }
 
-    public function test_get_options_returns_inputs()
+    public function test_get_inputs_returns_inputs()
     {
         $this->assertEquals(
             new Inputs(
                 new TextInput('text_option', 'Text Option')
             ),
-            $this->createDisplayType()->getOptions()
+            $this->createDisplayType()->getInputs()
         );
     }
 
-    public function test_has_options_returns_bool()
+    public function test_has_inputs_returns_bool()
     {
-        $this->assertTrue($this->createDisplayType()->hasOptions());
+        $this->assertTrue($this->createDisplayType()->hasInputs());
     }
 
     public function test_is_default_returns_true()
