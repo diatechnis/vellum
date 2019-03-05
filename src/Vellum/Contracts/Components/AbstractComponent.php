@@ -104,9 +104,15 @@ abstract class AbstractComponent implements ComponentInterface,
         return $return;
     }
 
-    abstract protected function createInputs(): InputsInterface;
+    protected function createInputs(): ?InputsInterface
+    {
+        return null;
+    }
 
-    abstract protected function createDisplayTypes(): DisplayTypesInterface;
+    protected function createDisplayTypes(): ?DisplayTypesInterface
+    {
+        return null;
+    }
 
     private function createArguments(array $arguments_data): ArgumentsInterface
     {
