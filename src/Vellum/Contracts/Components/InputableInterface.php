@@ -6,5 +6,5 @@ use Vellum\Contracts\Inputs\InputsInterface;
 
 interface InputableInterface
 {
-    public function getInputs(): InputsInterface;
+    public function getInputs(): ?InputsInterface;
 }

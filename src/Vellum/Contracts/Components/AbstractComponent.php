@@ -63,12 +63,12 @@ abstract class AbstractComponent implements ComponentInterface,
         );
     }
 
-    public function getDisplayTypes(): DisplayTypesInterface
+    public function getDisplayTypes(): ?DisplayTypesInterface
     {
         return $this->display_types;
     }
 
-    public function getInputs(): InputsInterface
+    public function getInputs(): ?InputsInterface
     {
         return $this->inputs;
     }

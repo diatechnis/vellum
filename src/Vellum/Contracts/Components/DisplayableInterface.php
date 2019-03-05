@@ -6,5 +6,5 @@ use Vellum\Contracts\DisplayTypes\DisplayTypesInterface;
 
 interface DisplayableInterface
 {
-    public function getDisplayTypes(): DisplayTypesInterface;
+    public function getDisplayTypes(): ?DisplayTypesInterface;
 }
