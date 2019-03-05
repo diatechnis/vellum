@@ -71,4 +71,14 @@ class ButtonTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals(Button::class, (new Button())->render());
     }
+
+    public function test_to_array_has_keys_in_alpha_order()
+    {
+        $array = (new Button())->toArray(true);
+
+        $this->assertEquals(
+            ['arguments', 'display_types', 'inputs'],
+            array_keys($array)
+        );
+    }
 }

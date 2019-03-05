@@ -3,6 +3,7 @@
 namespace Vellum\Contracts\Components;
 
 use Vellum\Contracts\Arguments\ArgumentsInterface;
+use Vellum\Contracts\ArrayableInterface;
 use Vellum\Contracts\DisplayTypes\DisplayTypesInterface;
 use Vellum\Contracts\Inputs\InputsInterface;
 use Vellum\Contracts\Renderers\RenderInterface;
@@ -11,6 +12,7 @@ use Vellum\Renderers\EmptyRenderer;
 
 abstract class AbstractComponent implements ComponentInterface,
     ArguableInterface,
+    ArrayableInterface,
     DisplayableInterface,
     InputableInterface,
     RenderableInterface
@@ -74,6 +76,32 @@ abstract class AbstractComponent implements ComponentInterface,
     public function render(): string
     {
         return $this->renderer->render($this);
+    }
+
+    public function toArray(bool $with_arguments = false): array
+    {
+        $return = [
+            'display_types' => null,
+            'inputs' => null,
+        ];
+
+        if ($with_arguments) {
+            $return['arguments'] = $this->getArguments();
+        }
+        
+        $display_types = $this->getDisplayTypes();
+        if (null !== $display_types) {
+            $return['display_types'] = $display_types->toArray();
+        }
+        
+        $inputs = $this->getInputs();
+        if (null !== $inputs) {
+            $return['inputs'] = $inputs->toArray();
+        }
+
+        ksort($return);
+
+        return $return;
     }
 
     abstract protected function createInputs(): InputsInterface;
