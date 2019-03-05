@@ -2,6 +2,7 @@
 
 namespace Vellum\Contracts\Components;
 
+use Vellum\Arguments\Arguments;
 use Vellum\Contracts\Arguments\ArgumentsInterface;
 use Vellum\Contracts\ArrayableInterface;
 use Vellum\Contracts\DisplayTypes\DisplayTypesInterface;
@@ -116,7 +117,21 @@ abstract class AbstractComponent implements ComponentInterface,
 
     private function createArguments(array $arguments_data): ArgumentsInterface
     {
-        return $this->display_types->createArguments($arguments_data)
-            ->mergeArguments($this->inputs->createArguments($arguments_data));
+        //TODO need test coverage for this method
+        $this->arguments = new Arguments([]);
+
+        if (null !== $this->display_types) {
+            $this->arguments = $this->arguments->mergeArguments(
+                $this->display_types->createArguments($arguments_data)
+            );
+        }
+
+        if (null !== $this->inputs) {
+            $this->arguments = $this->arguments->mergeArguments(
+                $this->inputs->createArguments($arguments_data)
+            );
+        }
+
+        return $this->arguments;
     }
 }
