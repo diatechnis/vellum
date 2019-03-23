@@ -2,6 +2,8 @@
 Vellum is a modular component building library written in PHP loosely inspired by 
 [atomic design principles](http://atomicdesign.bradfrost.com/).
 
+[See some Vellum components in action](https://diatechnis.github.io/vellum-example/) with the [Vellum Example project](https://github.com/diatechnis/vellum-example).
+
 ```php
 $renderer = new HtmlRenderer();
         
@@ -19,6 +21,26 @@ echo $component->render(); // would display:
 </button>
 */
 ```
+
+## Why Use Vellum?
+Here are a few benefits from adopting Vellum.
+
+### Structured
+How many times have you forgotten what data a view file needs and had to sift through the html to figure out what to pass to it?
+
+Vellum uses PHP classes with display types and inputs that document an API that you can refer to when using a component.
+
+### Don't Repeat Yourself
+Write components once and use them again and again.
+
+If you have your components in a separate library, then you can reuse them in every project.
+
+### Write Once
+Once a component is coded, you can use it everywhere. No need to keep writing `<a></a>` tags every time.
+
+### Consistency and Compliance
+Once you have accessible, on-brand components, your team can use the same html every time without worrying about missing important attributes or classes.
+
 
 ## Concepts
 Atomic design gives the designer tools to build interfaces that work together "to create interface design systems in a more deliberate and hierarchical manner." - http://atomicdesign.bradfrost.com/chapter-2/

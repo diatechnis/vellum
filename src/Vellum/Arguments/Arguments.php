@@ -39,7 +39,7 @@ final class Arguments implements ArgumentsInterface
         ArgumentsInterface $arguments
     ): ArgumentsInterface {
         return new Arguments(
-            \array_merge_recursive(
+            \Vellum\Helpers\recursive_array_merge(
                 $this->toArray(),
                 $arguments->toArray()
             )
